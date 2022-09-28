@@ -1,7 +1,6 @@
 # Live Activities
 
 ### Live Activities
-A Live Activity displays up-to-date information from your app, allowing people to view the progress of events or tasks at a glance.
 Live Activities hiển thị các thông tin mới nhất từ app của bạn, nó cho phép người dùng xem tình trạng hiện tại của các sự kiện hoặc tác vụ một cách nhanh chóng.  
 ![live-activities](Resources/live-activities-intro_2x.png "live-activities")
 

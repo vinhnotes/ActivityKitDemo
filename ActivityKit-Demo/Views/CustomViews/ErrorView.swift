@@ -8,15 +8,15 @@
 import SwiftUI
 
 struct ErrorView: View {
-    @ObservedObject var repository: LiveScoreRepository
+    @ObservedObject var viewModel: LiveScoreViewModel
     
     var body: some View {
         VStack {
             Text("😿")
                 .font(.system(size: 80))
-            Text(repository.errorMessage ?? "")
+            Text(viewModel.errorMessage ?? "")
             Button {
-                repository.fetchAllLiveScore()
+                viewModel.fetchAllLiveScore()
             } label: {
                 Text("Try again")
             }
@@ -26,6 +26,6 @@ struct ErrorView: View {
 
 struct ErrorView_Previews: PreviewProvider {
     static var previews: some View {
-        ErrorView(repository: LiveScoreRepository())
+        ErrorView(viewModel: LiveScoreViewModel())
     }
 }

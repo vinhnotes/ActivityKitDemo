@@ -20,8 +20,12 @@ struct MatchInfoActivityWidget: Widget {
     var body: some WidgetConfiguration {
         ActivityConfiguration(for: MatchAttributes.self) { context in
             // for device not support Dynamic Island
-            VStack(alignment: .leading) {
-                
+            VStack(alignment: .center) {
+                Image(systemName: "target")
+                Text(context.attributes.matchDate)
+                    .multilineTextAlignment(.center)
+                    .monospacedDigit()
+                    .font(.caption2)
             }
         } dynamicIsland: { context in
             // for device support Dynamic Island

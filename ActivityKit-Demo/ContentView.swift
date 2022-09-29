@@ -9,14 +9,14 @@ import SwiftUI
 import ActivityKit
 
 struct ContentView: View {
-    @StateObject var repository = LiveScoreRepository()
+    @StateObject var viewModel = LiveScoreViewModel()
     
     var body: some View {
-        if repository.isLoading {
+        if viewModel.isLoading {
             LoadingView()
-        } else if repository.errorMessage != nil {
-            ErrorView(repository: repository)
-        } else if !repository.matches.isEmpty {
+        } else if viewModel.errorMessage != nil {
+            ErrorView(viewModel: viewModel)
+        } else if !viewModel.matches.isEmpty {
             NavigationView {
                 ZStack {
                     backgroundImage
@@ -24,7 +24,7 @@ struct ContentView: View {
                 }
             }.onAppear {
                 Task {
-                    let match = repository.matches.first
+                    let match = viewModel.matches.first
 
                     print(match?.teamHomeBadge ?? "NIL")
                     let matchAttibutes = MatchAttributes(matchHometeamName: match?.matchHometeamName ?? "nil",
@@ -86,7 +86,7 @@ struct ContentView: View {
     
     func update() {
         print("Update score...")
-        repository.fetchAllLiveScore()
+        viewModel.fetchAllLiveScore()
     }
 }
 
